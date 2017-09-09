@@ -50,8 +50,8 @@ main(int argc, char *argv[])
   std::string protocol = "ns3::DashClient";
   std::string window = "10s";
   /*  LogComponentEnable("MpegPlayer", LOG_LEVEL_ALL);*/
-  /*LogComponentEnable ("DashServer", LOG_LEVEL_ALL);
-   LogComponentEnable ("DashClient", LOG_LEVEL_ALL);*/
+  LogComponentEnable ("DashServer", LOG_LEVEL_ALL);
+   LogComponentEnable ("DashClient", LOG_LEVEL_ALL);
 
 //
 // Allow the user to override any of the defaults at

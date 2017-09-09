@@ -1,4 +1,4 @@
-cscope 15 $HOME/repos/ns-3-allinone/ns-3-dev/src/dash               0000085327
+cscope 15 $HOME/repos/ns-3-allinone/ns-3-dev/src/dash               0000085445
 	@examples/dash-example.cc
 
 27 
@@ -116,6 +116,18 @@ d–ay
  
 wšdow
  = "10s";
+
+53 
+	`LogCompÚ’tEÇbË
+ ("DashS”v”", 
+LOG_LEVEL_ALL
+);
+
+54 
+	`LogCompÚ’tEÇbË
+ ("DashCl›Á", 
+LOG_LEVEL_ALL
+);
 
 60 
 CommªdLše
@@ -7607,19 +7619,7 @@ bufãrD–ay
 this
 );
 
-325 
-	g¡d
-::
-cout
-<< "T: "<<
-m_sumDt
-<<
-¡d
-::
-’dl
-;
-
-326 ià(
+325 ià(
 	gm_£gm’tId
 ==70084è
 DashCl›Á
@@ -7627,19 +7627,19 @@ DashCl›Á
 StÝAµliÿtiÚ
 ();
 
-337 
+336 
 NS_LOG_INFO
 (
 
-338 "===ðLa¡ f¿m»ûived. Reque¡šg segm’ˆ" << 
+337 "===ðLa¡ f¿m»ûived. Reque¡šg segm’ˆ" << 
 m_£gm’tId
 );
 
-341 
+340 
 NS_LOG_INFO
 (
 
-342 "!@#$#@!$@#\t" << 
+341 "!@#$#@!$@#\t" << 
 SimuÏtÜ
 ::
 Now
@@ -7655,13 +7655,13 @@ cu¼Dt
 m_Ï¡Dt
 ).GetSeconds());
 
-344 
+343 
 	gm_Ï¡Dt
  = 
 cu¼Dt
 ;
 
-351 
+350 
 	gDashCl›Á
 ::
 C®cNextSegm’t
@@ -7673,37 +7673,37 @@ cu¼R©e
 ÃxtR©e
 ,
 
-352 
+351 
 Time
  & 
 d–ay
 )
 
-360 
+359 
 	gÃxtR©e
  = 
 cu¼R©e
 ;
 
-361 
+360 
 	gd–ay
  = 
 SecÚds
 (0);
 
-365 
+364 
 	gDashCl›Á
 ::
 G‘Sts
 ()
 
-367 
+366 
 ¡d
 ::
 cout
  << " InterruptionTime: "
 
-368 << 
+367 << 
 m_¶ay”
 .
 m_š‹¼u±iÚ_time
@@ -7711,13 +7711,13 @@ m_š‹¼u±iÚ_time
 G‘SecÚds
 () << " interruptions: "
 
-369 << 
+368 << 
 m_¶ay”
 .
 m_š‹¼ru±iÚs
  << "‡vgRate: "
 
-370 << (1.0 * 
+369 << (1.0 * 
 m_¶ay”
 .
 m_tÙ®R©e
@@ -7725,13 +7725,13 @@ m_tÙ®R©e
 m_äamesPÏyed
 
 
-371 << " mšR©e: " << 
+370 << " mšR©e: " << 
 m_¶ay”
 .
 m_mšR©e
  << " AvgDt: "
 
-372 << 
+371 << 
 m_sumDt
 .
 G‘SecÚds
@@ -7741,7 +7741,7 @@ m_¶ay”
 m_äamesPÏyed
  << " changes: "
 
-373 << 
+372 << 
 m_¿‹Chªges
  << 
 ¡d
@@ -7749,7 +7749,7 @@ m_¿‹Chªges
 ’dl
 ;
 
-378 
+377 
 	gDashCl›Á
 ::
 LogBufãrLev–
@@ -7759,7 +7759,7 @@ Time
 t
 )
 
-380 
+379 
 m_bufãrS‹
 [
 SimuÏtÜ
@@ -7769,7 +7769,7 @@ Now
 t
 ;
 
-381 
+380 
 	g¡d
 ::
 m­
@@ -7787,7 +7787,7 @@ m_bufãrS‹
 begš
 ();
 
-382 
+381 
 	g™
  !ð
 m_bufãrS‹
@@ -7795,7 +7795,7 @@ m_bufãrS‹
 ’d
 (); ++it)
 
-384 ià(
+383 ià(
 	g™
 ->
 	gfœ¡
@@ -7807,7 +7807,7 @@ Now
 m_wšdow
 ))
 
-386 
+385 
 m_bufãrS‹
 .
 ”a£
@@ -7817,21 +7817,21 @@ m_bufãrS‹
 fœ¡
 );
 
-392 
+391 
 	gDashCl›Á
 ::
 G‘BufãrE¡im©e
 ()
 
-394 
+393 
 sum
  = 0;
 
-395 
+394 
 	gcouÁ
  = 0;
 
-396 
+395 
 	g¡d
 ::
 m­
@@ -7849,7 +7849,7 @@ m_bufãrS‹
 begš
 ();
 
-397 
+396 
 	g™
  !ð
 m_bufãrS‹
@@ -7857,7 +7857,7 @@ m_bufãrS‹
 ’d
 (); ++it)
 
-399 
+398 
 	gsum
  +ð
 ™
@@ -7867,23 +7867,23 @@ m_bufãrS‹
 G‘SecÚds
 ();
 
-400 
+399 
 	gcouÁ
 ++;
 
-402  
+401  
 	gsum
  / 
 	gcouÁ
 ;
 
-406 
+405 
 	gDashCl›Á
 ::
 G‘BufãrDifã»ÁŸl
 ()
 
-408 
+407 
 ¡d
 ::
 m­
@@ -7901,7 +7901,7 @@ m_bufãrS‹
 ’d
 ();
 
-410 ià(
+409 ià(
 	g™
  =ð
 m_bufãrS‹
@@ -7909,11 +7909,11 @@ m_bufãrS‹
 begš
 ())
 
-415 
+414 
 	g™
 --;
 
-416 
+415 
 Time
  
 	gÏ¡
@@ -7923,7 +7923,7 @@ Time
 £cÚd
 ;
 
-418 ià(
+417 ià(
 	g™
  =ð
 m_bufãrS‹
@@ -7931,11 +7931,11 @@ m_bufãrS‹
 begš
 ())
 
-423 
+422 
 	g™
 --;
 
-424 
+423 
 Time
  
 	g´ev
@@ -7945,7 +7945,7 @@ Time
 £cÚd
 ;
 
-425  (
+424  (
 	gÏ¡
  - 
 	g´ev
@@ -7953,19 +7953,19 @@ Time
 G‘SecÚds
 ();
 
-429 
+428 
 	gDashCl›Á
 ::
 G‘Segm’tF‘chTime
 ()
 
-431  
+430  
 m_£gm’tF‘chTime
 .
 G‘SecÚds
 ();
 
-435 
+434 
 	gDashCl›Á
 ::
 AddB™R©e
@@ -7977,7 +7977,7 @@ time
 b™¿‹
 )
 
-437 
+436 
 	gm_b™¿‹s
 [
 time
@@ -7985,15 +7985,15 @@ time
 b™¿‹
 ;
 
-438 
+437 
 	gsum
  = 0;
 
-439 
+438 
 	gcouÁ
  = 0;
 
-440 
+439 
 	g¡d
 ::
 m­
@@ -8009,7 +8009,7 @@ m_b™¿‹s
 begš
 ();
 
-441 
+440 
 	g™
  !ð
 m_b™¿‹s
@@ -8017,7 +8017,7 @@ m_b™¿‹s
 ’d
 (); ++it)
 
-443 ià(
+442 ià(
 	g™
 ->
 	gfœ¡
@@ -8029,7 +8029,7 @@ Now
 m_wšdow
 ))
 
-445 
+444 
 m_b™¿‹s
 .
 ”a£
@@ -8039,7 +8039,7 @@ m_b™¿‹s
 fœ¡
 );
 
-449 
+448 
 	gsum
  +ð
 ™
@@ -8047,11 +8047,11 @@ fœ¡
 £cÚd
 ;
 
-450 
+449 
 	gcouÁ
 ++;
 
-453 
+452 
 	gm_b™¿‹E¡im©e
  = 
 sum
@@ -9587,27 +9587,13 @@ S‘F¿meId
 f_id
 );
 
-294 
+299 
 	gm³g_h—d”
 .
 S‘PÏybackTime
 (
-
-295 
-MžliSecÚds
-(
-
-296 (
-f_id
- + (
-£gm’t_id
- * 
-MPEG_FRAMES_PER_SEGMENT
-))
-
-297 * 
-MPEG_TIME_BETWEEN_FRAMES
-));
+SecÚds
+(1));
 
 301 
 	gm³g_h—d”
@@ -12233,7 +12219,27 @@ NS_LOG_INFO
 m_¡©e
 );
 
-70 
+70 
+	gç
+=1;
+
+71 
+	g¡d
+::
+cout
+<<"Reûive: "<<
+ç
+<<
+¡d
+::
+’dl
+;
+
+72 
+	gç
+++;
+
+74 
 	gPŒ
 <
 	gPack‘
@@ -12245,7 +12251,7 @@ mes§ge
 CÝy
 ();
 
-72 
+76 
 	gm_queue
 .
 push
@@ -12253,23 +12259,23 @@ push
 msg
 );
 
-73 ià(
+77 ià(
 	gm_¡©e
  =ð
 MPEG_PLAYER_PAUSED
 )
 
-75 
+79 
 NS_LOG_INFO
 ("Play„esumed");
 
-76 
+80 
 	gm_¡©e
  = 
 MPEG_PLAYER_PLAYING
 ;
 
-77 
+81 
 	gm_š‹¼u±iÚ_time
  +ð(
 SimuÏtÜ
@@ -12279,27 +12285,27 @@ Now
 m_Ï¡·u£d
 );
 
-78 
+82 
 PÏyF¿me
 ();
 
-80 ià(
+84 ià(
 	gm_¡©e
  =ð
 MPEG_PLAYER_NOT_STARTED
 )
 
-82 
+86 
 NS_LOG_INFO
 ("Play started");
 
-83 
+87 
 	gm_¡©e
  = 
 MPEG_PLAYER_PLAYING
 ;
 
-84 
+88 
 	gm_¡¬t_time
  = 
 SimuÏtÜ
@@ -12307,7 +12313,7 @@ SimuÏtÜ
 Now
 ();
 
-85 
+89 
 	gSimuÏtÜ
 ::
 ScheduË
@@ -12323,55 +12329,75 @@ PÏyF¿me
 this
 );
 
-90 
+94 
 	gM³gPÏy”
 ::
 S¹
 ()
 
-92 
+96 
 NS_LOG_FUNCTION
 (
 this
 );
 
-93 
+97 
 	gm_¡©e
  = 
 MPEG_PLAYER_PLAYING
 ;
 
-94 
+98 
 	gm_š‹¼u±iÚ_time
  = 
 SecÚds
 (0);
 
-99 
+103 
 	gM³gPÏy”
 ::
 PÏyF¿me
 ()
 
-101 
+105 
+¶ay
+=1;
+
+106 
+	g¡d
+::
+cout
+<<"¶ay: "<<
+¶ay
+<<
+¡d
+::
+’dl
+;
+
+107 
+	g¶ay
+++;
+
+109 
 NS_LOG_FUNCTION
 (
 this
 );
 
-102 ià(
+110 ià(
 	gm_¡©e
  =ð
 MPEG_PLAYER_DONE
 )
 
-106 ià(
+114 ià(
 	gm_queue
 .
 em±y
 ())
 
-108 
+116 
 NS_LOG_INFO
 (
 SimuÏtÜ
@@ -12381,13 +12407,13 @@ Now
 G‘SecÚds
 () << " No frameso…lay");
 
-109 
+117 
 	gm_¡©e
  = 
 MPEG_PLAYER_PAUSED
 ;
 
-110 
+118 
 	gm_Ï¡·u£d
  = 
 SimuÏtÜ
@@ -12395,11 +12421,11 @@ SimuÏtÜ
 Now
 ();
 
-111 
+119 
 	gm_š‹¼ru±iÚs
 ++;
 
-114 
+122 
 	gPŒ
 <
 	gPack‘
@@ -12411,25 +12437,25 @@ m_queue
 äÚt
 ();
 
-115 
+123 
 	gm_queue
 .
 pÝ
 ();
 
-117 
+125 
 MPEGH—d”
  
 	gm³g_h—d”
 ;
 
-118 
+126 
 HTTPH—d”
  
 	gh‰p_h—d”
 ;
 
-120 
+128 
 	gmes§ge
 ->
 RemoveH—d”
@@ -12437,7 +12463,7 @@ RemoveH—d”
 m³g_h—d”
 );
 
-121 
+129 
 	gmes§ge
 ->
 RemoveH—d”
@@ -12445,7 +12471,7 @@ RemoveH—d”
 h‰p_h—d”
 );
 
-123 
+131 
 	gm_tÙ®R©e
  +ð
 h‰p_h—d”
@@ -12453,17 +12479,17 @@ h‰p_h—d”
 G‘ResÞutiÚ
 ();
 
-124 ià(
+132 ià(
 	gh‰p_h—d”
 .
 G‘Segm’tId
 () > 0)
 
-126 
+134 
 	gm_mšR©e
  =
 
-127 
+135 
 h‰p_h—d”
 .
 G‘ResÞutiÚ
@@ -12471,7 +12497,7 @@ G‘ResÞutiÚ
 m_mšR©e
  ?
 
-128 
+136 
 h‰p_h—d”
 .
 G‘ResÞutiÚ
@@ -12479,11 +12505,11 @@ G‘ResÞutiÚ
 m_mšR©e
 ;
 
-130 
+138 
 	gm_äamesPÏyed
 ++;
 
-135 
+143 
 Time
  
 	gb_t
@@ -12495,7 +12521,7 @@ m³g_h—d”
 G‘PÏybackTime
 ());
 
-137 ià(
+145 ià(
 	gm_bufãrD–ay
  > 
 Time
@@ -12505,29 +12531,29 @@ Time
 	gm_dashCl›Á
 )
 
-139 
+147 
 	gm_dashCl›Á
 ->
 Reque¡Segm’t
 ();
 
-140 
+148 
 	gm_bufãrD–ay
  = 
 SecÚds
 (0);
 
-141 
+149 
 	gm_dashCl›Á
  = 
 NULL
 ;
 
-144 
+152 
 NS_LOG_INFO
 (
 
-145 
+153 
 SimuÏtÜ
 ::
 Now
@@ -12557,13 +12583,13 @@ m_queue
 size
 ());
 
-153 
+161 
 	gSimuÏtÜ
 ::
 ScheduË
 (
 MžliSecÚds
-(20), &
+(2000), &
 M³gPÏy”
 ::
 PÏyF¿me
