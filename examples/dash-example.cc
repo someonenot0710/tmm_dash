@@ -34,8 +34,11 @@
 #include "ns3/dash-module.h"
 #include "../model/para.h"
 using namespace ns3;
-
+using namespace std;
 NS_LOG_COMPONENT_DEFINE("DashExample");
+
+#define SIZE 100
+char line[SIZE];
 
 int
 main(int argc, char *argv[])
@@ -50,8 +53,8 @@ main(int argc, char *argv[])
   std::string protocol = "ns3::DashClient";
   std::string window = "10s";
   /*  LogComponentEnable("MpegPlayer", LOG_LEVEL_ALL);*/
-  LogComponentEnable ("DashServer", LOG_LEVEL_ALL);
-   LogComponentEnable ("DashClient", LOG_LEVEL_ALL);
+//  LogComponentEnable ("DashServer", LOG_LEVEL_ALL);
+//   LogComponentEnable ("DashClient", LOG_LEVEL_ALL);
 
 //
 // Allow the user to override any of the defaults at
@@ -79,11 +82,28 @@ main(int argc, char *argv[])
   cmd.AddValue("window",
       "The window for measuring the average throughput (Time).", window);
 
-  cmd.AddValue("test",
-      "The window for measuring the average throughput (Time).", checktest); //Jerry
+  cmd.AddValue("in_file",
+      "input file", checktest); //Jerry
   cmd.Parse(argc, argv);
 
+// Jerry  
 
+    ifstream file("landscape5x5_10s_high.csv");
+    string str;
+    if(!file) cout<<"no file"<<endl;
+    while (getline(file,str)){
+	cout<<str<<endl;	
+    }
+
+
+/*
+ std::fstream fs;
+  fs.open ("location.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+
+  fs << " more lorem ipsum";
+
+  fs.close();
+*/
 //
 // Explicitly create the nodes required by the topology (shown above).
 //

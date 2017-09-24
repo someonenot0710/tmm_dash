@@ -1,1 +1,1 @@
-int checktest=20;
+std::string checktest;
