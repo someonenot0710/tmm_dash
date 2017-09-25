@@ -26,10 +26,12 @@
 #include <ns3/inet6-socket-address.h>
 #include "http-header.h"
 #include "dash-client.h"
-#include "para.h" //Jerry
-int count=0; //Jerry
-FILE * pFile; //Jerry
+#include "para.h"
+
 NS_LOG_COMPONENT_DEFINE("DashClient");
+using namespace std;
+
+vector <int> video_num; //Jerry
 
 namespace ns3
 {

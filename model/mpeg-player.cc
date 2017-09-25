@@ -67,10 +67,6 @@ namespace ns3
     NS_LOG_FUNCTION(this << message);
     NS_LOG_INFO("Received Frame " << m_state);
    
-    static int fa=1;
-    std::cout<<"Receive: "<<fa<<std::endl;
-    fa++; //Jerry
-   
     Ptr<Packet> msg = message->Copy();
 
     m_queue.push(msg);
@@ -102,9 +98,6 @@ namespace ns3
   void
   MpegPlayer::PlayFrame(void)
   {
-    static int play=1;
-    std::cout<<"play: "<<play<<std::endl;
-    play++; //Jerry
 
     NS_LOG_FUNCTION(this);
     if (m_state == MPEG_PLAYER_DONE)

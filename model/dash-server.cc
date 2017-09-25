@@ -37,6 +37,9 @@
 #include <ns3/random-variable-stream.h>
 #include <ns3/tcp-socket.h>
 #include <ns3/double.h>
+#include "para.h"
+using namespace std;
+
 
 namespace ns3
 {
@@ -254,10 +257,19 @@ namespace ns3
   DashServer::SendSegment(uint32_t video_id, uint32_t resolution,
       uint32_t segment_id, Ptr<Socket> socket)
   {
-/*	static int test=0;
-	test++;
-	std::cout<<"server: "<<test<<std::endl; //Jerry */
-  
+
+	/*Jerry*/ 
+    static int co=0;
+    if(co==0){
+	cout<<"in server side"<<endl;
+    for (size_t j=0,max=video_num.size();j!=max;j++){
+	cout<<video_num[j]<<endl;
+    }
+	co++;
+	}
+ 
+
+
     int avg_packetsize = resolution / (50 * 8);
 
     HTTPHeader http_header_tmp;
@@ -291,12 +303,14 @@ namespace ns3
 
         MPEGHeader mpeg_header;
         mpeg_header.SetFrameId(f_id);
-/*        mpeg_header.SetPlaybackTime(
+        mpeg_header.SetPlaybackTime(
             MilliSeconds(
                 (f_id + (segment_id * MPEG_FRAMES_PER_SEGMENT))
                     * MPEG_TIME_BETWEEN_FRAMES)); //50 fps
-*/
-	mpeg_header.SetPlaybackTime(Seconds(1)); //Jerry
+
+//	cout<<Simulator::Now()<<":  "<<(f_id + (segment_id * MPEG_FRAMES_PER_SEGMENT))* MPEG_TIME_BETWEEN_FRAMES<<endl;
+
+//	mpeg_header.SetPlaybackTime(Seconds(1)); //Jerry
 
         mpeg_header.SetType('B');
         mpeg_header.SetSize(frame_size);

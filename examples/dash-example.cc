@@ -40,6 +40,7 @@ NS_LOG_COMPONENT_DEFINE("DashExample");
 #define SIZE 100
 char line[SIZE];
 
+//vector <int> video_num;
 int
 main(int argc, char *argv[])
 {
@@ -92,8 +93,13 @@ main(int argc, char *argv[])
     string str;
     if(!file) cout<<"no file"<<endl;
     while (getline(file,str)){
-	cout<<str<<endl;	
+	video_num.push_back(stoi(str));	
     }
+
+    for (size_t j=0, max=video_num.size() ;j!=max;j++){
+	cout<<video_num[j]<<endl;
+     }
+	cout<<"good"<<endl;
 
 
 /*
