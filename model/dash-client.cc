@@ -233,16 +233,28 @@ namespace ns3
   void
   DashClient::MessageReceived(Packet message)
   {
-    NS_LOG_FUNCTION(this << message);
 
     MPEGHeader mpegHeader;
     HTTPHeader httpHeader;
-
+    frame_num++;
     // Send the frame to the player
     m_player.ReceiveFrame(&message);
+    m_player.GetID(m_id);
     m_segment_bytes += message.GetSize();
     m_totBytes += message.GetSize();
-//    std::cout << "message: " <<message.GetSize()<<"m_segment_bytes: "<<m_segment_bytes<<std::endl; //Jerry 
+
+    if(frame_num==video_num[v_num]){
+//	std::cout<<"Sim Time: "<<Simulator::Now().GetSeconds()<<" ------- "<<"total_bytes: "<<m_totBytes<<std::endl;
+	std::cout<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<std::endl;
+	v_num++;
+
+	if(v_num!=(int)video_num.size())
+	frame_num=0;
+        seg_num++;	
+    }
+
+//    std::cout<<"frame_num: "<<frame_num<<std::endl;
+  //  std::cout << "message: " <<message.GetSize()<<"m_segment_bytes: "<<m_segment_bytes<<std::endl; //Jerry 
 //    std::cout<<"total: "<<m_totBytes<<"  "<< "m_segment: "<<m_segment_bytes<<"  "<<"message: "<<message.GetSize()<<std::endl; //Jerry
 
     message.RemoveHeader(mpegHeader);
@@ -324,7 +336,7 @@ namespace ns3
 //	std::cout << Simulator::Now().GetSeconds()<<"    "<<"User: "<<m_id<<"  "<<"segmentID: "<<m_segmentId<<std::endl; //Jerry
 
 //	std::cout<<m_id<<","<<m_segmentId<<","<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<","<<segment_size<<std::endl; //Jerry output uint32_t segment_size
-	if (m_segmentId==70084) DashClient::StopApplication(); //Jerry
+	if (seg_num==27) DashClient::StopApplication(); //Jerry
 
 /*	std::cout << Simulator::Now().GetSeconds() << " Node: " << m_id
             << " newBitRate: " << m_bitRate << " oldBitRate: " << old

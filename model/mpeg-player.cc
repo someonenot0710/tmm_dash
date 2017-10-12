@@ -26,7 +26,7 @@
 #include "mpeg-player.h"
 #include "dash-client.h"
 #include <cmath>
-
+#include "para.h"
 NS_LOG_COMPONENT_DEFINE("MpegPlayer");
 namespace ns3
 {
@@ -64,18 +64,23 @@ namespace ns3
   void
   MpegPlayer::ReceiveFrame(Ptr<Packet> message)
   {
+
     NS_LOG_FUNCTION(this << message);
     NS_LOG_INFO("Received Frame " << m_state);
    
     Ptr<Packet> msg = message->Copy();
 
     m_queue.push(msg);
+//    std::cout<<"queue_num: "<<m_queue.size()<<std::endl; //Jerry
+
     if (m_state == MPEG_PLAYER_PAUSED)
       {
+	if(m_queue.size()>(unsigned) video_num[v_num]){ //Jerry add if
         NS_LOG_INFO("Play resumed");
         m_state = MPEG_PLAYER_PLAYING;
         m_interruption_time += (Simulator::Now() - m_lastpaused);
         PlayFrame();
+	}
       }
     else if (m_state == MPEG_PLAYER_NOT_STARTED)
       {
@@ -84,6 +89,13 @@ namespace ns3
         m_start_time = Simulator::Now();
         Simulator::Schedule(Simulator::Now(), &MpegPlayer::PlayFrame, this);
       }
+  }
+
+  void
+  MpegPlayer::GetID(int m_id)
+  {
+    userID=m_id;
+//  std::cout<<"ID: "<<m_id<<std::endl;
   }
 
   void
@@ -98,7 +110,13 @@ namespace ns3
   void
   MpegPlayer::PlayFrame(void)
   {
+    
+//    std::cout<<"Sim Time: "<<Simulator::Now().GetSeconds()<<"  "<<userID<<":play "<<std::endl; //Jerry
+        //Jerry
+//    std::cout<<"video_num: "<<video_num[v_num]<<"  queue_num:"<<m_queue.size()<<std::endl;
+//    v_num++;	 
 
+    
     NS_LOG_FUNCTION(this);
     if (m_state == MPEG_PLAYER_DONE)
       {
@@ -112,23 +130,48 @@ namespace ns3
         m_interrruptions++;
         return;
       }
+    if (m_queue.size()<(unsigned) video_num[v_num])
+      {
+	m_state = MPEG_PLAYER_PAUSED;
+        m_lastpaused = Simulator::Now();
+        m_interrruptions++;
+//	std::cout<<"interruption: "<<m_interrruptions<<std::endl; 
+        return;	
+      }
+   
+	MPEGHeader mpeg_header;
+        HTTPHeader http_header; 
+    for (int i=0;i<(int)video_num[v_num];i++){
+	Ptr<Packet> message = m_queue.front();
+	m_queue.pop();
+//	std::cout<<"After pop: "<<m_queue.size()<<std::endl;
+	message->RemoveHeader(mpeg_header);
+        message->RemoveHeader(http_header);
+        m_totalRate += http_header.GetResolution();
+	m_framesPlayed++; 
+      }
+
+      v_num++;
+    /*
     Ptr<Packet> message = m_queue.front();
     m_queue.pop();
 
     MPEGHeader mpeg_header;
     HTTPHeader http_header;
-
+    
     message->RemoveHeader(mpeg_header);
     message->RemoveHeader(http_header);
 
     m_totalRate += http_header.GetResolution();
+*/  
+
     if (http_header.GetSegmentId() > 0) // Discard the first segment for the minRate
       {                                 // calculation, as it is always the minimum rate
         m_minRate =
             http_header.GetResolution() < m_minRate ?
                 http_header.GetResolution() : m_minRate;
       }
-    m_framesPlayed++;
+   // m_framesPlayed++;
 
     /*std::cerr << "res= " << http_header.GetResolution() << " tot="
      << m_totalRate << " played=" << m_framesPlayed << std::endl;*/
@@ -141,6 +184,8 @@ namespace ns3
         m_bufferDelay = Seconds(0);
         m_dashClient = NULL;
       }
+
+   // std::cout<<"VidID: "<<http_header.GetVideoId()<<std::endl; //Jerry
 
     NS_LOG_INFO(
         Simulator::Now().GetSeconds() << " PLAYING FRAME: " << " VidId: " << http_header.GetVideoId() << " SegId: " << http_header.GetSegmentId() << " Res: " << http_header.GetResolution() << " FrameId: " << mpeg_header.GetFrameId() << " PlayTime: " << mpeg_header.GetPlaybackTime().GetSeconds() << " Type: " << (char) mpeg_header.GetType() << " interTime: " << m_interruption_time.GetSeconds() << " queueLength: " << m_queue.size());

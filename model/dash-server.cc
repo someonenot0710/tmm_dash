@@ -259,6 +259,7 @@ namespace ns3
   {
 
 	/*Jerry*/ 
+	/*
     static int co=0;
     if(co==0){
 	cout<<"in server side"<<endl;
@@ -267,7 +268,7 @@ namespace ns3
     }
 	co++;
 	}
- 
+   */
 
 
     int avg_packetsize = resolution / (50 * 8);

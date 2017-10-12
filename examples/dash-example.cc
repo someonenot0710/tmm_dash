@@ -95,12 +95,12 @@ main(int argc, char *argv[])
     while (getline(file,str)){
 	video_num.push_back(stoi(str));	
     }
-
+/*
     for (size_t j=0, max=video_num.size() ;j!=max;j++){
 	cout<<video_num[j]<<endl;
      }
 	cout<<"good"<<endl;
-
+*/
 
 /*
  std::fstream fs;
@@ -166,7 +166,7 @@ main(int argc, char *argv[])
       client.SetAttribute("TargetDt", TimeValue(Seconds(target_dt)));
       client.SetAttribute("window", TimeValue(Time(window)));
       ApplicationContainer clientApp = client.Install(nodes.Get(0));
-      clientApp.Start(Seconds(0.25+user*100));
+      clientApp.Start(Seconds(0.25+user*5));
 //      clientApp.Stop(Seconds(stopTime));
 
       clients.push_back(client);

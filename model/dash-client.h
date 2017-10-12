@@ -177,6 +177,9 @@ namespace ns3
     Time m_lastDt; // The previous buffering time (used for calculating the differential
     static int m_countObjs; // Number of DashClient instances (for generating unique id
     int m_id;
+    int v_num=0; //Jerry
+    int frame_num=0; //Jerry
+    int seg_num=0; //Jerry
     Time m_requestTime;      // Time of sending the last request
     uint32_t m_segment_bytes; // Bytes of the current segment that have been received so far
     uint32_t m_bitRate;      // The bitrate of the current segment.

@@ -62,6 +62,9 @@ namespace ns3
       m_dashClient = client;
     }
 
+    void 
+    GetID(int id); //Jerry
+
     int m_state;
     Time m_interruption_time;
     int m_interrruptions;
@@ -79,7 +82,8 @@ namespace ns3
     std::queue<Ptr<Packet> > m_queue;
     Time m_bufferDelay;
     DashClient * m_dashClient;
-
+    int userID; //Jerry
+    size_t v_num=0;
   };
 } // namespace ns3
 
