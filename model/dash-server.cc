@@ -232,7 +232,6 @@ namespace ns3
                 "VidId: " << httpHeader.GetVideoId() << " rxAv= " << iter->first->GetRxAvailable() << " queue= "<< iter->second.size() << " res= " << httpHeader.GetResolution());
           }
       }
-
     while (!m_queues[socket].empty())
       {
         int bytes;
@@ -246,6 +245,7 @@ namespace ns3
               }
             break;
           }
+//	std::cout<<"m_queue: "<<m_queues[socket].size()<<std::endl; //Jerry
         m_queues[socket].pop();
       }
 
@@ -270,6 +270,7 @@ namespace ns3
 	}
    */
 
+    v_num++; //Jerry
 
     int avg_packetsize = resolution / (50 * 8);
 
@@ -290,10 +291,11 @@ namespace ns3
     frame_size_gen->SetAttribute ("Max", DoubleValue (1288)); // Jerry
     
 
-    for (uint32_t f_id = 0; f_id < MPEG_FRAMES_PER_SEGMENT; f_id++)
+    for (uint32_t f_id = 0; f_id < (unsigned) video_num[v_num]; f_id++) //MPEG_FRAMES_PER_SEGMENT
       {
         uint32_t frame_size = (unsigned) frame_size_gen->GetValue();
-
+	
+//	std::cout<<"f_id: "<<f_id<<std::endl;
 //	std::cout<<"f_id"<<f_id<<"  " << "size" << frame_size <<std::endl; //Jerry
 
         HTTPHeader http_header;

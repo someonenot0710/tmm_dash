@@ -84,10 +84,12 @@ namespace ns3
       }
     else if (m_state == MPEG_PLAYER_NOT_STARTED)
       {
+	if(m_queue.size()>(unsigned) 2704){
         NS_LOG_INFO("Play started");
         m_state = MPEG_PLAYER_PLAYING;
         m_start_time = Simulator::Now();
         Simulator::Schedule(Simulator::Now(), &MpegPlayer::PlayFrame, this);
+      	}
       }
   }
 
@@ -135,12 +137,13 @@ namespace ns3
 	m_state = MPEG_PLAYER_PAUSED;
         m_lastpaused = Simulator::Now();
         m_interrruptions++;
-//	std::cout<<"interruption: "<<m_interrruptions<<std::endl; 
+	std::cout<<"interruption: "<<m_interrruptions<<std::endl; 
         return;	
       }
    
 	MPEGHeader mpeg_header;
         HTTPHeader http_header; 
+
     for (int i=0;i<(int)video_num[v_num];i++){
 	Ptr<Packet> message = m_queue.front();
 	m_queue.pop();
@@ -196,7 +199,7 @@ namespace ns3
      << " now: " << Simulator::Now().GetSeconds()
      << std::endl;
      */
-    Simulator::Schedule(MilliSeconds(2000), &MpegPlayer::PlayFrame, this);
+    Simulator::Schedule(MilliSeconds(1000), &MpegPlayer::PlayFrame, this);
 
   }
 

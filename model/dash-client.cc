@@ -243,16 +243,18 @@ namespace ns3
     m_segment_bytes += message.GetSize();
     m_totBytes += message.GetSize();
 
+//    std::cout<<"frame: "<<frame_num<<std::endl;
+ 
     if(frame_num==video_num[v_num]){
-//	std::cout<<"Sim Time: "<<Simulator::Now().GetSeconds()<<" ------- "<<"total_bytes: "<<m_totBytes<<std::endl;
-	std::cout<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<std::endl;
+	std::cout<<"seg: "<<seg_num<<"  frame: "<<frame_num<<"   Sim Time: "<<Simulator::Now().GetSeconds()<<" ------- "<<"total_bytes: "<<m_totBytes<<std::endl;
+//	std::cout<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<std::endl;
 	v_num++;
-
 	if(v_num!=(int)video_num.size())
 	frame_num=0;
-        seg_num++;	
+        seg_num++;
+//	std::cout<<"seg: "<<seg_num<<std::endl;	
     }
-
+    if (seg_num==60) DashClient::StopApplication();
 //    std::cout<<"frame_num: "<<frame_num<<std::endl;
   //  std::cout << "message: " <<message.GetSize()<<"m_segment_bytes: "<<m_segment_bytes<<std::endl; //Jerry 
 //    std::cout<<"total: "<<m_totBytes<<"  "<< "m_segment: "<<m_segment_bytes<<"  "<<"message: "<<message.GetSize()<<std::endl; //Jerry
@@ -270,6 +272,8 @@ namespace ns3
       break;
     case MPEG_PLAYER_DONE:
       return;
+    case MPEG_PLAYER_NOT_STARTED: //add by Jerry
+      break;
     default:
       NS_FATAL_ERROR("WRONG STATE");
       }
@@ -336,7 +340,7 @@ namespace ns3
 //	std::cout << Simulator::Now().GetSeconds()<<"    "<<"User: "<<m_id<<"  "<<"segmentID: "<<m_segmentId<<std::endl; //Jerry
 
 //	std::cout<<m_id<<","<<m_segmentId<<","<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<","<<segment_size<<std::endl; //Jerry output uint32_t segment_size
-	if (seg_num==27) DashClient::StopApplication(); //Jerry
+	if (seg_num==60) DashClient::StopApplication(); //Jerry
 
 /*	std::cout << Simulator::Now().GetSeconds() << " Node: " << m_id
             << " newBitRate: " << m_bitRate << " oldBitRate: " << old

@@ -1,4 +1,4 @@
-cscope 15 $HOME/tmm/repos/ns-3-allinone/ns-3-dev/src/dash               0000086394
+cscope 15 $HOME/tmm/repos/ns-3-allinone/ns-3-dev/src/dash               0000086460
 	@examples/dash-example.cc
 
 27 
@@ -253,7 +253,7 @@ cmd
 if°ªam
  
 	`fûe
-("landscape5x5_10s_high.csv");
+("3x3_high.csv");
 
 93 
 °rög
@@ -7497,21 +7497,27 @@ video_num
 v_num
 ]){
 
-247 
+248 
 °d
 ::
 cout
-<<"tŸÆ_byãs: "<<
+<<
+Simuœt‹
+::
+Now
+().
+GëSec⁄ds
+()<<","<<
 m_tŸByãs
 <<°d::
 ídl
 ;
 
-248 
+249 
 	gv_num
 ++;
 
-250 if(
+251 if(
 	gv_num
 !=()
 video_num
@@ -7519,23 +7525,15 @@ video_num
 size
 ())
 
-251 
+252 
 ‰ame_num
 =0;
 
-254 
-	g°d
-::
-cout
-<<"‰ame_num: "<<
-‰ame_num
-<<
-°d
-::
-ídl
-;
+253 
+	g£g_num
+++;
 
-258 
+260 
 	gmesßge
 .
 RemoveHódî
@@ -7543,7 +7541,7 @@ RemoveHódî
 m≥gHódî
 );
 
-259 
+261 
 	gmesßge
 .
 RemoveHódî
@@ -7551,17 +7549,17 @@ RemoveHódî
 hâpHódî
 );
 
-262 
+264 
 	gm_∂ayî
 .
 	gm_°©e
 )
 
-264 
+266 
 	gMPEG_PLAYER_PLAYING
 :
 
-265 
+267 
 m_sumDt
  +
 m_∂ayî
@@ -7573,19 +7571,23 @@ m≥gHódî
 GëPœybackTime
 ());
 
-267 
+269 
 	gMPEG_PLAYER_PAUSED
 :
 
-269 
+271 
 	gMPEG_PLAYER_DONE
 :
 
-272 
+273 
+	gMPEG_PLAYER_NOT_STARTED
+:
+
+276 
 NS_FATAL_ERROR
 ("WRONG STATE");
 
-275 i‡(
+279 i‡(
 	gm≥gHódî
 .
 GëFømeId
@@ -7593,7 +7595,7 @@ GëFømeId
 MPEG_FRAMES_PER_SEGMENT
  - 1)
 
-280 
+284 
 m_£gmítFëchTime
  = 
 Simuœt‹
@@ -7603,11 +7605,11 @@ Now
 m_ªque°Time
 ;
 
-282 
+286 
 NS_LOG_INFO
 (
 
-283 
+287 
 Simuœt‹
 ::
 Now
@@ -7619,7 +7621,7 @@ m_£gmít_byãs
 m_£gmítFëchTime
 .GetSeconds() << " segmentRate: " << 8 * m_segment_bytes / m_segmentFetchTime.GetSeconds());
 
-285 
+289 
 AddBôR©e
 (
 Simuœt‹
@@ -7627,7 +7629,7 @@ Simuœt‹
 Now
 (),
 
-286 8 * 
+290 8 * 
 m_£gmít_byãs
  / 
 m_£gmítFëchTime
@@ -7635,7 +7637,7 @@ m_£gmítFëchTime
 GëSec⁄ds
 ());
 
-288 
+292 
 Time
  
 	gcuºDt
@@ -7649,13 +7651,13 @@ m≥gHódî
 GëPœybackTime
 ());
 
-290 
+294 
 LogBuf„rLevñ
 (
 cuºDt
 );
 
-292 
+296 
 uöt32_t
  
 	gﬁd
@@ -7663,13 +7665,13 @@ uöt32_t
 m_bôR©e
 ;
 
-295 
+299 
 Time
  
 	gbuf„rDñay
 ;
 
-300 
+304 
 uöt32_t
  
 	g¥evBôøã
@@ -7677,7 +7679,7 @@ uöt32_t
 m_bôR©e
 ;
 
-309 
+313 
 	gDashClõ¡
 ::
 CÆcNextSegmít
@@ -7689,27 +7691,27 @@ m_bôR©e
 buf„rDñay
 );
 
-311 i‡(
+315 i‡(
 	g¥evBôøã
  !
 m_bôR©e
 )
 
-313 
+317 
 m_øãCh™ges
 ++;
 
-316 i‡(
+320 i‡(
 	gbuf„rDñay
  =
 Sec⁄ds
 (0))
 
-318 
+322 
 Reque°Segmít
 ();
 
-322 
+326 
 	gm_∂ayî
 .
 SchduÀBuf„rWakeup
@@ -7719,27 +7721,27 @@ buf„rDñay
 this
 );
 
-337 i‡(
-	g‰ame_num
-==527Ë
+341 i‡(
+	g£g_num
+==27Ë
 DashClõ¡
 ::
 St›Aµliˇti⁄
 ();
 
-348 
-NS_LOG_INFO
-(
-
-349 "===La° fømêª˚ived. Reque°ög segmíà" << 
-m_£gmítId
-);
-
 352 
 NS_LOG_INFO
 (
 
-353 "!@#$#@!$@#\t" << 
+353 "===La° fømêª˚ived. Reque°ög segmíà" << 
+m_£gmítId
+);
+
+356 
+NS_LOG_INFO
+(
+
+357 "!@#$#@!$@#\t" << 
 Simuœt‹
 ::
 Now
@@ -7755,13 +7757,13 @@ cuºDt
 m_œ°Dt
 ).GetSeconds());
 
-355 
+359 
 	gm_œ°Dt
  = 
 cuºDt
 ;
 
-362 
+366 
 	gDashClõ¡
 ::
 CÆcNextSegmít
@@ -7773,37 +7775,37 @@ cuºR©e
 √xtR©e
 ,
 
-363 
+367 
 Time
  & 
 dñay
 )
 
-371 
+375 
 	g√xtR©e
  = 
 cuºR©e
 ;
 
-372 
+376 
 	gdñay
  = 
 Sec⁄ds
 (0);
 
-376 
+380 
 	gDashClõ¡
 ::
 GëSèts
 ()
 
-378 
+382 
 °d
 ::
 cout
  << " InterruptionTime: "
 
-379 << 
+383 << 
 m_∂ayî
 .
 m_öãºu±i⁄_time
@@ -7811,13 +7813,13 @@ m_öãºu±i⁄_time
 GëSec⁄ds
 () << " interruptions: "
 
-380 << 
+384 << 
 m_∂ayî
 .
 m_öãºru±i⁄s
  << "ávgRate: "
 
-381 << (1.0 * 
+385 << (1.0 * 
 m_∂ayî
 .
 m_tŸÆR©e
@@ -7825,13 +7827,13 @@ m_tŸÆR©e
 m_‰amesPœyed
 
 
-382 << " möR©e: " << 
+386 << " möR©e: " << 
 m_∂ayî
 .
 m_möR©e
  << " AvgDt: "
 
-383 << 
+387 << 
 m_sumDt
 .
 GëSec⁄ds
@@ -7841,7 +7843,7 @@ m_∂ayî
 m_‰amesPœyed
  << " changes: "
 
-384 << 
+388 << 
 m_øãCh™ges
  << 
 °d
@@ -7849,7 +7851,7 @@ m_øãCh™ges
 ídl
 ;
 
-389 
+393 
 	gDashClõ¡
 ::
 LogBuf„rLevñ
@@ -7859,7 +7861,7 @@ Time
 t
 )
 
-391 
+395 
 m_buf„rSèã
 [
 Simuœt‹
@@ -7869,7 +7871,7 @@ Now
 t
 ;
 
-392 
+396 
 	g°d
 ::
 m≠
@@ -7887,7 +7889,7 @@ m_buf„rSèã
 begö
 ();
 
-393 
+397 
 	gô
  !
 m_buf„rSèã
@@ -7895,7 +7897,7 @@ m_buf„rSèã
 íd
 (); ++it)
 
-395 i‡(
+399 i‡(
 	gô
 ->
 	gfú°
@@ -7907,7 +7909,7 @@ Now
 m_wödow
 ))
 
-397 
+401 
 m_buf„rSèã
 .
 îa£
@@ -7917,21 +7919,21 @@ m_buf„rSèã
 fú°
 );
 
-403 
+407 
 	gDashClõ¡
 ::
 GëBuf„rE°im©e
 ()
 
-405 
+409 
 sum
  = 0;
 
-406 
+410 
 	gcou¡
  = 0;
 
-407 
+411 
 	g°d
 ::
 m≠
@@ -7949,7 +7951,7 @@ m_buf„rSèã
 begö
 ();
 
-408 
+412 
 	gô
  !
 m_buf„rSèã
@@ -7957,7 +7959,7 @@ m_buf„rSèã
 íd
 (); ++it)
 
-410 
+414 
 	gsum
  +
 ô
@@ -7967,23 +7969,23 @@ m_buf„rSèã
 GëSec⁄ds
 ();
 
-411 
+415 
 	gcou¡
 ++;
 
-413  
+417  
 	gsum
  / 
 	gcou¡
 ;
 
-417 
+421 
 	gDashClõ¡
 ::
 GëBuf„rDif„ª¡ül
 ()
 
-419 
+423 
 °d
 ::
 m≠
@@ -8001,7 +8003,7 @@ m_buf„rSèã
 íd
 ();
 
-421 i‡(
+425 i‡(
 	gô
  =
 m_buf„rSèã
@@ -8009,11 +8011,11 @@ m_buf„rSèã
 begö
 ())
 
-426 
+430 
 	gô
 --;
 
-427 
+431 
 Time
  
 	gœ°
@@ -8023,7 +8025,7 @@ Time
 £c⁄d
 ;
 
-429 i‡(
+433 i‡(
 	gô
  =
 m_buf„rSèã
@@ -8031,11 +8033,11 @@ m_buf„rSèã
 begö
 ())
 
-434 
+438 
 	gô
 --;
 
-435 
+439 
 Time
  
 	g¥ev
@@ -8045,7 +8047,7 @@ Time
 £c⁄d
 ;
 
-436  (
+440  (
 	gœ°
  - 
 	g¥ev
@@ -8053,19 +8055,19 @@ Time
 GëSec⁄ds
 ();
 
-440 
+444 
 	gDashClõ¡
 ::
 GëSegmítFëchTime
 ()
 
-442  
+446  
 m_£gmítFëchTime
 .
 GëSec⁄ds
 ();
 
-446 
+450 
 	gDashClõ¡
 ::
 AddBôR©e
@@ -8077,7 +8079,7 @@ time
 bôøã
 )
 
-448 
+452 
 	gm_bôøãs
 [
 time
@@ -8085,15 +8087,15 @@ time
 bôøã
 ;
 
-449 
+453 
 	gsum
  = 0;
 
-450 
+454 
 	gcou¡
  = 0;
 
-451 
+455 
 	g°d
 ::
 m≠
@@ -8109,7 +8111,7 @@ m_bôøãs
 begö
 ();
 
-452 
+456 
 	gô
  !
 m_bôøãs
@@ -8117,7 +8119,7 @@ m_bôøãs
 íd
 (); ++it)
 
-454 i‡(
+458 i‡(
 	gô
 ->
 	gfú°
@@ -8129,7 +8131,7 @@ Now
 m_wödow
 ))
 
-456 
+460 
 m_bôøãs
 .
 îa£
@@ -8139,7 +8141,7 @@ m_bôøãs
 fú°
 );
 
-460 
+464 
 	gsum
  +
 ô
@@ -8147,11 +8149,11 @@ fú°
 £c⁄d
 ;
 
-461 
+465 
 	gcou¡
 ++;
 
-464 
+468 
 	gm_bôøãE°im©e
  = 
 sum
@@ -8575,31 +8577,35 @@ Time
 	g‰ame_num
 =0;
 
-182 
+182 
+	g£g_num
+=0;
+
+183 
 Time
  
 	gm_ªque°Time
 ;
 
-183 
+184 
 uöt32_t
  
 	gm_£gmít_byãs
 ;
 
-184 
+185 
 uöt32_t
  
 	gm_bôR©e
 ;
 
-185 
+186 
 Time
  
 	gm_wödow
 ;
 
-186 
+187 
 Time
  
 	gm_£gmítFëchTime
@@ -11943,7 +11949,7 @@ MPEG_HEADER_H
 
 38 
 	#MPEG_FRAMES_PER_SEGMENT
- 100
+ 1
 
 39 
 	#MPEG_TIME_BETWEEN_FRAMES
@@ -12423,17 +12429,25 @@ PœyFøme
 MPEG_PLAYER_NOT_STARTED
 )
 
-87 
+87 if(
+m_queue
+.
+size
+()>(Ë
+video_num
+[0]){
+
+88 
 NS_LOG_INFO
 ("Play started");
 
-88 
+89 
 	gm_°©e
  = 
 MPEG_PLAYER_PLAYING
 ;
 
-89 
+90 
 	gm_°¨t_time
  = 
 Simuœt‹
@@ -12441,7 +12455,7 @@ Simuœt‹
 Now
 ();
 
-90 
+91 
 	gSimuœt‹
 ::
 ScheduÀ
@@ -12457,7 +12471,7 @@ PœyFøme
 this
 );
 
-95 
+97 
 	gM≥gPœyî
 ::
 GëID
@@ -12465,61 +12479,61 @@ GëID
 m_id
 )
 
-97 
+99 
 u£rID
 =
 m_id
 ;
 
-102 
+104 
 	gM≥gPœyî
 ::
 Sèπ
 ()
 
-104 
+106 
 NS_LOG_FUNCTION
 (
 this
 );
 
-105 
+107 
 	gm_°©e
  = 
 MPEG_PLAYER_PLAYING
 ;
 
-106 
+108 
 	gm_öãºu±i⁄_time
  = 
 Sec⁄ds
 (0);
 
-111 
+113 
 	gM≥gPœyî
 ::
 PœyFøme
 ()
 
-120 
+122 
 NS_LOG_FUNCTION
 (
 this
 );
 
-121 i‡(
+123 i‡(
 	gm_°©e
  =
 MPEG_PLAYER_DONE
 )
 
-125 i‡(
+127 i‡(
 	gm_queue
 .
 em±y
 ())
 
-127 
+129 
 NS_LOG_INFO
 (
 Simuœt‹
@@ -12529,13 +12543,13 @@ Now
 GëSec⁄ds
 () << " No framesÅoÖlay");
 
-128 
+130 
 	gm_°©e
  = 
 MPEG_PLAYER_PAUSED
 ;
 
-129 
+131 
 	gm_œ°∑u£d
  = 
 Simuœt‹
@@ -12543,11 +12557,11 @@ Simuœt‹
 Now
 ();
 
-130 
+132 
 	gm_öãºru±i⁄s
 ++;
 
-133 i‡(
+135 i‡(
 	gm_queue
 .
 size
@@ -12557,13 +12571,13 @@ size
 v_num
 ])
 
-135 
+137 
 	gm_°©e
  = 
 MPEG_PLAYER_PAUSED
 ;
 
-136 
+138 
 	gm_œ°∑u£d
  = 
 Simuœt‹
@@ -12571,11 +12585,11 @@ Simuœt‹
 Now
 ();
 
-137 
+139 
 	gm_öãºru±i⁄s
 ++;
 
-138 
+140 
 	g°d
 ::
 cout
@@ -12587,19 +12601,19 @@ m_öãºru±i⁄s
 ídl
 ;
 
-142 
+144 
 MPEGHódî
  
 	gm≥g_hódî
 ;
 
-143 
+145 
 HTTPHódî
  
 	ghâp_hódî
 ;
 
-144 
+147 
 	gi
 =0;i<()
 	gvideo_num
@@ -12607,7 +12621,7 @@ HTTPHódî
 v_num
 ];i++){
 
-145 
+148 
 	gPå
 <
 	gPackë
@@ -12619,13 +12633,13 @@ m_queue
 ‰⁄t
 ();
 
-146 
+149 
 	gm_queue
 .
 p›
 ();
 
-148 
+151 
 	gmesßge
 ->
 RemoveHódî
@@ -12633,7 +12647,7 @@ RemoveHódî
 m≥g_hódî
 );
 
-149 
+152 
 	gmesßge
 ->
 RemoveHódî
@@ -12641,7 +12655,7 @@ RemoveHódî
 hâp_hódî
 );
 
-150 
+153 
 	gm_tŸÆR©e
  +
 hâp_hódî
@@ -12649,25 +12663,25 @@ hâp_hódî
 GëResﬁuti⁄
 ();
 
-151 
+154 
 	gm_‰amesPœyed
 ++;
 
-154 
+157 
 	gv_num
 ++;
 
-168 i‡(
+171 i‡(
 	ghâp_hódî
 .
 GëSegmítId
 () > 0)
 
-170 
+173 
 	gm_möR©e
  =
 
-171 
+174 
 hâp_hódî
 .
 GëResﬁuti⁄
@@ -12675,7 +12689,7 @@ GëResﬁuti⁄
 m_möR©e
  ?
 
-172 
+175 
 hâp_hódî
 .
 GëResﬁuti⁄
@@ -12683,7 +12697,7 @@ GëResﬁuti⁄
 m_möR©e
 ;
 
-179 
+182 
 Time
  
 	gb_t
@@ -12695,7 +12709,7 @@ m≥g_hódî
 GëPœybackTime
 ());
 
-181 i‡(
+184 i‡(
 	gm_buf„rDñay
  > 
 Time
@@ -12705,29 +12719,29 @@ Time
 	gm_dashClõ¡
 )
 
-183 
+186 
 	gm_dashClõ¡
 ->
 Reque°Segmít
 ();
 
-184 
+187 
 	gm_buf„rDñay
  = 
 Sec⁄ds
 (0);
 
-185 
+188 
 	gm_dashClõ¡
  = 
 NULL
 ;
 
-190 
+193 
 NS_LOG_INFO
 (
 
-191 
+194 
 Simuœt‹
 ::
 Now
@@ -12757,13 +12771,13 @@ m_queue
 size
 ());
 
-199 
+202 
 	gSimuœt‹
 ::
 ScheduÀ
 (
 MûliSec⁄ds
-(2000), &
+(1000), &
 M≥gPœyî
 ::
 PœyFøme

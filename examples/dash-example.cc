@@ -89,7 +89,7 @@ main(int argc, char *argv[])
 
 // Jerry  
 
-    ifstream file("landscape5x5_10s_high.csv");
+    ifstream file("3x3_high.csv");
     string str;
     if(!file) cout<<"no file"<<endl;
     while (getline(file,str)){
