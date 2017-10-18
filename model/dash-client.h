@@ -180,6 +180,8 @@ namespace ns3
     int v_num=0; //Jerry
     int frame_num=0; //Jerry
     int seg_num=0; //Jerry
+    int flag=0; //Jerry
+    int tmp_num=0; //Jerry
     Time m_requestTime;      // Time of sending the last request
     uint32_t m_segment_bytes; // Bytes of the current segment that have been received so far
     uint32_t m_bitRate;      // The bitrate of the current segment.

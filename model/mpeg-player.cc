@@ -71,7 +71,6 @@ namespace ns3
     Ptr<Packet> msg = message->Copy();
 
     m_queue.push(msg);
-//    std::cout<<"queue_num: "<<m_queue.size()<<std::endl; //Jerry
 
     if (m_state == MPEG_PLAYER_PAUSED)
       {
@@ -84,20 +83,20 @@ namespace ns3
       }
     else if (m_state == MPEG_PLAYER_NOT_STARTED)
       {
-	if(m_queue.size()>(unsigned) 2704){
+	if(m_queue.size()>(unsigned) 1101){
         NS_LOG_INFO("Play started");
         m_state = MPEG_PLAYER_PLAYING;
         m_start_time = Simulator::Now();
-        Simulator::Schedule(Simulator::Now(), &MpegPlayer::PlayFrame, this);
+//        Simulator::Schedule(Simulator::Now(), &MpegPlayer::PlayFrame, this);
+	PlayFrame();
       	}
       }
   }
 
-  void
+  void //Jerry
   MpegPlayer::GetID(int m_id)
   {
     userID=m_id;
-//  std::cout<<"ID: "<<m_id<<std::endl;
   }
 
   void
@@ -112,12 +111,11 @@ namespace ns3
   void
   MpegPlayer::PlayFrame(void)
   {
-    
+       
 //    std::cout<<"Sim Time: "<<Simulator::Now().GetSeconds()<<"  "<<userID<<":play "<<std::endl; //Jerry
         //Jerry
 //    std::cout<<"video_num: "<<video_num[v_num]<<"  queue_num:"<<m_queue.size()<<std::endl;
 //    v_num++;	 
-
     
     NS_LOG_FUNCTION(this);
     if (m_state == MPEG_PLAYER_DONE)
@@ -144,10 +142,11 @@ namespace ns3
 	MPEGHeader mpeg_header;
         HTTPHeader http_header; 
 
+	std::cout<<"play time: "<<Simulator::Now().GetSeconds()<<std::endl; //Jerry
+
     for (int i=0;i<(int)video_num[v_num];i++){
 	Ptr<Packet> message = m_queue.front();
 	m_queue.pop();
-//	std::cout<<"After pop: "<<m_queue.size()<<std::endl;
 	message->RemoveHeader(mpeg_header);
         message->RemoveHeader(http_header);
         m_totalRate += http_header.GetResolution();
@@ -188,7 +187,6 @@ namespace ns3
         m_dashClient = NULL;
       }
 
-   // std::cout<<"VidID: "<<http_header.GetVideoId()<<std::endl; //Jerry
 
     NS_LOG_INFO(
         Simulator::Now().GetSeconds() << " PLAYING FRAME: " << " VidId: " << http_header.GetVideoId() << " SegId: " << http_header.GetSegmentId() << " Res: " << http_header.GetResolution() << " FrameId: " << mpeg_header.GetFrameId() << " PlayTime: " << mpeg_header.GetPlaybackTime().GetSeconds() << " Type: " << (char) mpeg_header.GetType() << " interTime: " << m_interruption_time.GetSeconds() << " queueLength: " << m_queue.size());

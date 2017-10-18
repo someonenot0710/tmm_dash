@@ -234,10 +234,12 @@ namespace ns3
       }
     while (!m_queues[socket].empty())
       {
+	std::cout<<"m_queue_size: "<<m_queues[socket].size()<<std::endl; //Jerry
         int bytes;
         Ptr<Packet> frame = m_queues[socket].front().Copy();
         if ((bytes = socket->Send(frame)) != (int) frame->GetSize())
           {
+	    std::cout<<"Could not send frame"<<std::endl;
             NS_LOG_INFO("Could not send frame");
             if (bytes != -1)
               {
@@ -257,7 +259,7 @@ namespace ns3
   DashServer::SendSegment(uint32_t video_id, uint32_t resolution,
       uint32_t segment_id, Ptr<Socket> socket)
   {
-
+   std::cout<<"send segment!!!!!!"<<std::endl;
 	/*Jerry*/ 
 	/*
     static int co=0;

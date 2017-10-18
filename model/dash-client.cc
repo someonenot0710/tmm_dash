@@ -242,28 +242,25 @@ namespace ns3
     m_player.GetID(m_id);
     m_segment_bytes += message.GetSize();
     m_totBytes += message.GetSize();
-
-//    std::cout<<"frame: "<<frame_num<<std::endl;
- 
+   
+    std::cout<<"frame_num: "<<frame_num<<" video_num: "<<video_num[v_num]<<std::endl; 
     if(frame_num==video_num[v_num]){
 	std::cout<<"seg: "<<seg_num<<"  frame: "<<frame_num<<"   Sim Time: "<<Simulator::Now().GetSeconds()<<" ------- "<<"total_bytes: "<<m_totBytes<<std::endl;
 //	std::cout<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<std::endl;
 	v_num++;
 	if(v_num!=(int)video_num.size())
+	tmp_num=frame_num;
 	frame_num=0;
         seg_num++;
-//	std::cout<<"seg: "<<seg_num<<std::endl;	
     }
-    if (seg_num==60) DashClient::StopApplication();
-//    std::cout<<"frame_num: "<<frame_num<<std::endl;
-  //  std::cout << "message: " <<message.GetSize()<<"m_segment_bytes: "<<m_segment_bytes<<std::endl; //Jerry 
-//    std::cout<<"total: "<<m_totBytes<<"  "<< "m_segment: "<<m_segment_bytes<<"  "<<"message: "<<message.GetSize()<<std::endl; //Jerry
+   // if (seg_num==60) DashClient::StopApplication();
 
     message.RemoveHeader(mpegHeader);
     message.RemoveHeader(httpHeader);
     
     // Calculate the buffering time
-    switch (m_player.m_state)
+ 
+   switch (m_player.m_state)
       {
     case MPEG_PLAYER_PLAYING:
       m_sumDt += m_player.GetRealPlayTime(mpegHeader.GetPlaybackTime());
@@ -278,13 +275,16 @@ namespace ns3
       NS_FATAL_ERROR("WRONG STATE");
       }
     // If we received the last frame of the segment
-    if (mpegHeader.GetFrameId() == MPEG_FRAMES_PER_SEGMENT - 1)
+//    if (mpegHeader.GetFrameId() == (unsigned) video_num[v_num-1] - 1) //MPEG_FRAMES_PER_SEGMENT
+      
+      if(v_num>0 && (tmp_num == video_num[v_num-1]))
       {
-	
+	tmp_num=0;
+	std::cout<<"ID: "<<m_id<<"   request segment------"<<std::endl;
+//	std::cout<<mpegHeader.GetFrameId()<<std::endl; //Jerry	
 //	uint32_t segment_size = m_segment_bytes; //Jerry
 
         m_segmentFetchTime = Simulator::Now() - m_requestTime;
-	//std::cout << m_requestTime << std::endl; //Jerry
         NS_LOG_INFO(
             Simulator::Now().GetSeconds() << " bytes: " << m_segment_bytes << " segmentTime: " << m_segmentFetchTime.GetSeconds() << " segmentRate: " << 8 * m_segment_bytes / m_segmentFetchTime.GetSeconds());
         // Feed the bitrate info to the player
@@ -337,10 +337,7 @@ namespace ns3
             << " del: " << bufferDelay << std::endl;
 */
 
-//	std::cout << Simulator::Now().GetSeconds()<<"    "<<"User: "<<m_id<<"  "<<"segmentID: "<<m_segmentId<<std::endl; //Jerry
-
-//	std::cout<<m_id<<","<<m_segmentId<<","<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<","<<segment_size<<std::endl; //Jerry output uint32_t segment_size
-	if (seg_num==60) DashClient::StopApplication(); //Jerry
+//	if (seg_num==60) DashClient::StopApplication(); //Jerry
 
 /*	std::cout << Simulator::Now().GetSeconds() << " Node: " << m_id
             << " newBitRate: " << m_bitRate << " oldBitRate: " << old

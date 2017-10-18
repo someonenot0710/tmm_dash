@@ -166,7 +166,7 @@ main(int argc, char *argv[])
       client.SetAttribute("TargetDt", TimeValue(Seconds(target_dt)));
       client.SetAttribute("window", TimeValue(Time(window)));
       ApplicationContainer clientApp = client.Install(nodes.Get(0));
-      clientApp.Start(Seconds(0.25+user*5));
+      clientApp.Start(Seconds(0.25));
 //      clientApp.Stop(Seconds(stopTime));
 
       clients.push_back(client);
