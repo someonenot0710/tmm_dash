@@ -75,6 +75,7 @@ namespace ns3
     if (m_state == MPEG_PLAYER_PAUSED)
       {
 	if(m_queue.size()>(unsigned) video_num[v_num]){ //Jerry add if
+	if(m_queue.size()>(unsigned) 0)
         NS_LOG_INFO("Play resumed");
         m_state = MPEG_PLAYER_PLAYING;
         m_interruption_time += (Simulator::Now() - m_lastpaused);
@@ -84,7 +85,7 @@ namespace ns3
       }
     else if (m_state == MPEG_PLAYER_NOT_STARTED)
       {
-	if(m_queue.size()>(unsigned) 1101){
+	if(m_queue.size()>(unsigned) 5){  //1101
         NS_LOG_INFO("Play started");
         m_state = MPEG_PLAYER_PLAYING;
         m_start_time = Simulator::Now();

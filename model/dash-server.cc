@@ -234,12 +234,12 @@ namespace ns3
       }
     while (!m_queues[socket].empty())
       {
-//	std::cout<<"socket: "<<socket<<"  m_queue_size: "<<m_queues[socket].size()<<std::endl; //Jerry
+	std::cout<<"socket: "<<socket<<"  m_queue_size: "<<m_queues[socket].size()<<std::endl; //Jerry
         int bytes;
         Ptr<Packet> frame = m_queues[socket].front().Copy();
         if ((bytes = socket->Send(frame)) != (int) frame->GetSize())
           {
-//	    std::cout<<"Could not send frame"<<std::endl;
+	    std::cout<<"Could not send frame"<<std::endl;
             NS_LOG_INFO("Could not send frame");
             if (bytes != -1)
               {
@@ -275,13 +275,16 @@ namespace ns3
     v_num[video_id]++; //Jerry
 
     int avg_packetsize = resolution / (50 * 8);
-
     HTTPHeader http_header_tmp;
     MPEGHeader mpeg_header_tmp;
 
     Ptr<UniformRandomVariable> frame_size_gen = CreateObject<UniformRandomVariable> ();
     /*Jerry*/
-    frame_size_gen->SetAttribute ("Min", DoubleValue (1288));
+
+//    frame_size_gen->SetAttribute ("Min", DoubleValue (1288));
+
+     frame_size_gen->SetAttribute ("Min", DoubleValue (1288));
+     frame_size_gen->SetAttribute ("Max", DoubleValue (1288));
     /*
     frame_size_gen->SetAttribute ("Max", DoubleValue (
         std::max(
@@ -290,10 +293,11 @@ namespace ns3
                     + http_header_tmp.GetSerializedSize()), 1)));
     */
 
-    frame_size_gen->SetAttribute ("Max", DoubleValue (1288)); // Jerry
+//    frame_size_gen->SetAttribute ("Max", DoubleValue (1288)); // Jerry
     
 
     for (uint32_t f_id = 0; f_id < (unsigned) video_num[v_num[video_id]]; f_id++) //MPEG_FRAMES_PER_SEGMENT
+//    for (uint32_t f_id = 0; f_id < MPEG_FRAMES_PER_SEGMENT; f_id++)
       {
         uint32_t frame_size = (unsigned) frame_size_gen->GetValue();
 	

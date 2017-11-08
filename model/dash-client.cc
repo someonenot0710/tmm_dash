@@ -244,6 +244,7 @@ namespace ns3
     m_totBytes += message.GetSize();
    
 //    std::cout<<"ID: "<<m_id<<"  frame_num: "<<frame_num<<" video_num: "<<video_num[v_num]<<std::endl; 
+/*
     if(frame_num==video_num[v_num]){
 //	std::cout<<"seg: "<<seg_num<<"  frame: "<<frame_num<<"   Sim Time: "<<Simulator::Now().GetSeconds()<<" ------- "<<"total_bytes: "<<m_totBytes<<std::endl;
 //	std::cout<<m_id<<","<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<std::endl;
@@ -253,7 +254,9 @@ namespace ns3
 	frame_num=0;
         seg_num++;
     }
-   // if (seg_num==60) DashClient::StopApplication();
+*/
+   std::cout<<frame_num<<std::endl;
+    if (seg_num==60) DashClient::StopApplication();
 
     message.RemoveHeader(mpegHeader);
     message.RemoveHeader(httpHeader);
