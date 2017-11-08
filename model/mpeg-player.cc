@@ -78,6 +78,7 @@ namespace ns3
         NS_LOG_INFO("Play resumed");
         m_state = MPEG_PLAYER_PLAYING;
         m_interruption_time += (Simulator::Now() - m_lastpaused);
+	cout<<userID<<","<<m_interrruptions<<","<<(Simulator::Now() - m_lastpaused).GetSeconds()<<std::endl;
         PlayFrame();
 	}
       }
@@ -128,6 +129,7 @@ namespace ns3
         m_state = MPEG_PLAYER_PAUSED;
         m_lastpaused = Simulator::Now();
         m_interrruptions++;
+//	std::cout<<"here empty???"<<std::endl;
         return;
       }
     if (m_queue.size()<(unsigned) video_num[v_num])
@@ -135,14 +137,15 @@ namespace ns3
 	m_state = MPEG_PLAYER_PAUSED;
         m_lastpaused = Simulator::Now();
         m_interrruptions++;
-	std::cout<<"interruption: "<<m_interrruptions<<std::endl; 
+//	cout<<m_id<<","<<m_interrruptions<<std::endl;
+//	std::cout<<"interruption--------------------"<<m_interrruptions<<std::endl; 
         return;	
       }
    
 	MPEGHeader mpeg_header;
         HTTPHeader http_header; 
 
-	std::cout<<"play time: "<<Simulator::Now().GetSeconds()<<std::endl; //Jerry
+//	std::cout<<"play time: "<<Simulator::Now().GetSeconds()<<std::endl; //Jerry
 
     for (int i=0;i<(int)video_num[v_num];i++){
 	Ptr<Packet> message = m_queue.front();

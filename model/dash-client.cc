@@ -243,10 +243,10 @@ namespace ns3
     m_segment_bytes += message.GetSize();
     m_totBytes += message.GetSize();
    
-    std::cout<<"frame_num: "<<frame_num<<" video_num: "<<video_num[v_num]<<std::endl; 
+//    std::cout<<"ID: "<<m_id<<"  frame_num: "<<frame_num<<" video_num: "<<video_num[v_num]<<std::endl; 
     if(frame_num==video_num[v_num]){
-	std::cout<<"seg: "<<seg_num<<"  frame: "<<frame_num<<"   Sim Time: "<<Simulator::Now().GetSeconds()<<" ------- "<<"total_bytes: "<<m_totBytes<<std::endl;
-//	std::cout<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<std::endl;
+//	std::cout<<"seg: "<<seg_num<<"  frame: "<<frame_num<<"   Sim Time: "<<Simulator::Now().GetSeconds()<<" ------- "<<"total_bytes: "<<m_totBytes<<std::endl;
+//	std::cout<<m_id<<","<<Simulator::Now().GetSeconds()<<","<<m_totBytes<<std::endl;
 	v_num++;
 	if(v_num!=(int)video_num.size())
 	tmp_num=frame_num;
@@ -280,7 +280,7 @@ namespace ns3
       if(v_num>0 && (tmp_num == video_num[v_num-1]))
       {
 	tmp_num=0;
-	std::cout<<"ID: "<<m_id<<"   request segment------"<<std::endl;
+//	std::cout<<"ID: "<<m_id<<"   request segment------"<<std::endl;
 //	std::cout<<mpegHeader.GetFrameId()<<std::endl; //Jerry	
 //	uint32_t segment_size = m_segment_bytes; //Jerry
 

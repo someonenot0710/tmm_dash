@@ -50,7 +50,7 @@ main(int argc, char *argv[])
   double target_dt = 35.0;
   double stopTime = 100.0;
   std::string linkRate = "500Kbps";
-  std::string delay = "5ms";
+  std::string delay = "0ms";
   std::string protocol = "ns3::DashClient";
   std::string window = "10s";
   /*  LogComponentEnable("MpegPlayer", LOG_LEVEL_ALL);*/

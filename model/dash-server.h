@@ -108,7 +108,7 @@ namespace ns3
 
     // A structure that contains the generated MPEG frames, for each client.
     std::map<Ptr<Socket>, std::queue<Packet> > m_queues;
-    int v_num=-1; //Jerry
+    int v_num[10]={-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; //Jerry
 
   };
 
